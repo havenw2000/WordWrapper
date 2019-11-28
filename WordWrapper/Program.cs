@@ -15,6 +15,7 @@ namespace ConsoleApp1
             string outputText = text;
             int insertLocation = maxLineLength;
             int textLength = outputText.Length;
+            int prevInsertLocation = 0;
             char[] outputTextChars = outputText.ToCharArray();
             char space = ' ';
 
@@ -24,13 +25,26 @@ namespace ConsoleApp1
                 //Create a statement that goes to desired character determined by maxLineLength and determine if character is a space
                 while(outputTextChars[insertLocation] != space)
                 {
-                    //If character is not a space then loop back until it reaches a space
-                    insertLocation--;
+                    //If character is not a space then decrement and loop back until it reaches a space
+                    if(insertLocation == prevInsertLocation)
+                    {
+                        insertLocation = insertLocation + maxLineLength;
+                        break;
+                    }
+                    else
+                    {
+                        insertLocation--;
+                    }
+                    
                 }
 
                 //Insert line break
-                outputText = outputText.Insert(insertLocation + 1, "\n");
+                outputText = outputText.Remove(insertLocation, 1);
+                outputText = outputText.Insert(insertLocation, "\n");
+
+                //Update array of characters from string as well as new string length, and increment insert location for next line break
                 outputTextChars = outputText.ToCharArray();
+                prevInsertLocation = insertLocation;
                 insertLocation = insertLocation + maxLineLength;
                 textLength = outputText.Length;
             }
