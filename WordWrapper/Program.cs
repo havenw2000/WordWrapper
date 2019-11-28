@@ -15,20 +15,21 @@ namespace ConsoleApp1
             string outputText = text;
             int insertLocation = maxLineLength;
             int textLength = outputText.Length;
-
-            //Create a loop that goes to desired character determined by maxLineLength unless it reaches end line
-
-
-            //Determine if character is a space
-
-
-            //If character is not a space then loop back until it reaches a space
-
+            char[] outputTextChars = outputText.ToCharArray();
+            char space = ' ';
 
             //If/when character is a space then insert line break
             while (insertLocation < textLength)
-            {   
-                outputText = outputText.Insert(insertLocation, "\n");
+            {
+                //Create a statement that goes to desired character determined by maxLineLength and determine if character is a space
+                while(outputTextChars[insertLocation] != space)
+                {
+                    //If character is not a space then loop back until it reaches a space
+                    insertLocation--;
+                }
+
+                //Insert line break
+                outputText = outputText.Insert(insertLocation + 1, "\n");
                 insertLocation = insertLocation + maxLineLength;
                 textLength = outputText.Length;
             }
