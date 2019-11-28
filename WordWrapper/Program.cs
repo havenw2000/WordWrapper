@@ -13,8 +13,8 @@ namespace ConsoleApp1
         {
             //Declare variables
             string outputText = text;
-            int textLength = text.Length;
             int insertLocation = maxLineLength;
+            int textLength = outputText.Length;
 
             //Create a loop that goes to desired character determined by maxLineLength unless it reaches end line
 
@@ -26,10 +26,11 @@ namespace ConsoleApp1
 
 
             //If/when character is a space then insert line break
-            while(insertLocation < textLength)
-            {
+            while (insertLocation < textLength)
+            {   
                 outputText = outputText.Insert(insertLocation, "\n");
                 insertLocation = insertLocation + maxLineLength;
+                textLength = outputText.Length;
             }
 
             WriteLine(outputText);
