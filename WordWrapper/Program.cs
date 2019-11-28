@@ -30,6 +30,7 @@ namespace ConsoleApp1
 
                 //Insert line break
                 outputText = outputText.Insert(insertLocation + 1, "\n");
+                outputTextChars = outputText.ToCharArray();
                 insertLocation = insertLocation + maxLineLength;
                 textLength = outputText.Length;
             }
