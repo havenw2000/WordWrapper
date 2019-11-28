@@ -29,6 +29,7 @@ namespace ConsoleApp1
                     if(insertLocation == prevInsertLocation)
                     {
                         insertLocation = insertLocation + maxLineLength;
+                        outputText = outputText.Insert(insertLocation, " ");
                         break;
                     }
                     else
