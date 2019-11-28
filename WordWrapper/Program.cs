@@ -35,7 +35,6 @@ namespace ConsoleApp1
                     {
                         insertLocation--;
                     }
-                    
                 }
 
                 //Insert line break
