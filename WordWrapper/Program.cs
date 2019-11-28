@@ -74,6 +74,7 @@ namespace ConsoleApp1
             {
                 userInput = ReadLine();
 
+                //Check to make sure input is a whole number higher than 0
                 if (int.TryParse(userInput, out int number))
                 {
                     userDeclaredMaxLength = Convert.ToInt32(userInput);
@@ -97,6 +98,7 @@ namespace ConsoleApp1
             //Pass desired length and text to Wrap function
             WordWrapper.Wrap(userInput, userDeclaredMaxLength);
 
+            WriteLine("\nSample text above\n\nPress any key to end...");
             ReadKey();
         }
     }
